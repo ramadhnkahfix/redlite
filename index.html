@@ -7,6 +7,7 @@
     <title>Redlite Karaoke Jakarta Utara - Nightlife Experience</title>
     <meta name="description"
         content="Experience the best nightlife karaoke in Jakarta Utara at Redlite Karaoke. Enjoy exclusive rooms, premium drinks, and charming companions. Claim your voucher today!">
+
     <!-- Google Analytics (GA4) Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_MEASUREMENT_ID"></script>
     <script>
@@ -16,12 +17,14 @@
         gtag('config', 'YOUR_GA_MEASUREMENT_ID'); // Replace with your actual GA Measurement ID
     </script>
     <!-- End Google Analytics -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
         html {
             scroll-behavior: smooth;
+            /* Smooth scroll for all anchor links */
         }
 
         body {
@@ -54,6 +57,7 @@
             /* Lighter red hover */
         }
 
+        /* WhatsApp button specific styles */
         .whatsapp-button {
             position: fixed;
             bottom: 20px;
@@ -62,23 +66,33 @@
             /* WhatsApp green */
             color: white;
             border-radius: 30px;
+            /* More rounded rectangle for text */
             width: 60px;
+            /* Initial width for icon only */
             height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease-in-out;
+            /* Smooth transition for all properties */
             z-index: 1000;
+            /* Ensure the button is always on top */
             overflow: hidden;
+            /* Hide overflowing text initially */
             padding: 0 15px;
+            /* Add some horizontal padding */
             text-decoration: none;
+            /* Remove underline from link */
         }
 
         .whatsapp-button:hover {
-            width: 150px;
+            width: 200px;
+            /* Expanded width to show text */
             background-color: #1da851;
+            /* Darker green on hover */
             justify-content: flex-start;
+            /* Align content to start */
         }
 
         /* Styles for the phone icon (visible when not hovered) */
@@ -116,11 +130,11 @@
         }
 
         /* Hover state styles */
-        .whatsapp-button:hover .whatsapp-icon {
+        .whatsapp-button:hover .phone-icon {
             opacity: 0;
         }
 
-        .whatsapp-button:hover .icon {
+        .whatsapp-button:hover .whatsapp-icon {
             opacity: 1;
             position: relative;
             /* Take up space in flexbox */
@@ -176,6 +190,10 @@
             box-sizing: border-box;
             padding: 1rem;
             /* Adjust as needed */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /* Align items to the top within the slide */
         }
 
         .carousel-button {
@@ -235,6 +253,8 @@
             grid-template-columns: 1fr;
             gap: 2rem;
             /* Increased gap for better spacing */
+            width: 100%;
+            /* Ensure grid takes full width in slide */
         }
 
         @media (min-width: 640px) {
@@ -252,10 +272,289 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+
+        .gallery-item-content {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid #b91c1c;
+            /* red-700 */
+            width: 100%;
+            /* ensure it takes full width of its grid cell */
+            display: flex;
+            /* Use flex to arrange content vertically */
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Align content to the top */
+            align-items: center;
+            background-color: #1a1a1a;
+            /* Removed fixed height here, now content dictates height */
+        }
+
+        .gallery-item-content .media-wrapper {
+            width: 100%;
+            /* Removed fixed height here, using aspect-ratio instead */
+            aspect-ratio: 16/9;
+            /* Maintain a 16:9 aspect ratio for media */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Ensure content doesn't spill */
+        }
+
+        .gallery-item-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Changed to contain for full image visibility */
+        }
+
+        .gallery-item-content .video-container {
+            /* Target the video container directly */
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* For iframe to position absolutely inside */
+            padding-bottom: 0;
+            /* Remove padding-bottom from map-container style */
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Promotion card layout for carousel items */
+        .promotion-card {
+            display: flex;
+            flex-direction: column;
+            /* Default to column on small screens */
+            align-items: center;
+            gap: 1.5rem;
+            /* Gap between image and text */
+            padding: 1rem;
+            /* Added padding for consistent spacing inside the card */
+        }
+
+        .promotion-card img {
+            width: 100%;
+            height: 200px;
+            /* Fixed height for consistency of the container */
+            object-fit: cover;
+            /* Changed to cover to fit height */
+            border-radius: 0.5rem;
+            /* Match card radius */
+            background-color: #0d0d0d;
+            /* Background for the image area if contain leaves space */
+        }
+
+        .promotion-card .text-content {
+            flex-grow: 1;
+            /* Allow text content to take remaining space */
+            padding: 0 1rem;
+            /* Adjust padding as needed for responsiveness */
+        }
+
+        /* New Carousel specific styles for Promotions */
+        .promotions-carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            /* rounded-lg */
+            border: 1px solid #b91c1c;
+            /* red-700 */
+            margin-bottom: 2rem;
+            /* Space between the two promotion sections */
+        }
+
+        .promotions-carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .promotions-carousel-slide {
+            min-width: 100%;
+            /* Each slide takes full width of its container */
+            box-sizing: border-box;
+            padding: 1rem;
+            /* Adjust as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .promotions-carousel-slide img {
+            width: 100%;
+            height: fit-content;
+        }
+
+        .promotions-carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .promotions-carousel-button:hover {
+            background-color: rgba(220, 38, 38, 0.8);
+            /* red-600 with opacity */
+        }
+
+        .promotions-carousel-button.left {
+            left: 10px;
+        }
+
+        .promotions-carousel-button.right {
+            right: 10px;
+        }
+
+        .promotions-carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .promotions-carousel-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .promotions-carousel-indicator.active {
+            background-color: #dc2626;
+            /* red-600 */
+        }
+
+        /* Style for the single full-width promotion card (Ladies Night Ignite) */
+        .promotion-card-single {
+            display: flex;
+            flex-direction: column;
+            /* Stacks title, then image+description */
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem;
+            background-color: #0d0d0d;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #b91c1c;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+            /* Center title on mobile */
+        }
+
+        .promotion-card-single:hover {
+            transform: scale(1.02);
+        }
+
+        .promotion-card-single .promotion-card-title {
+            width: 100%;
+            /* Title takes full width */
+            margin-bottom: 0.5rem;
+            /* Adjust margin as needed */
+        }
+
+        .promotion-card-single .promotion-card-body-content {
+            display: flex;
+            flex-direction: column;
+            /* Stack image and description on all screen sizes */
+            align-items: center;
+            width: 50%;
+            gap: 1rem;
+            /* Gap between image and description */
+        }
+
+        .promotion-card-single img {
+            width: 100%;
+            /* Image takes full width of its container on small screens */
+            height: 200px;
+            object-fit: cover;
+            /* Changed to cover to fit height */
+            border-radius: 0.5rem;
+            background-color: #0a0a0a;
+        }
+
+        .promotion-card-single .text-content {
+            flex-grow: 1;
+            padding: 0 1rem;
+            /* Padding within text content */
+            text-align: left;
+            /* Align text to left for readability */
+        }
+
+        @media (min-width: 768px) {
+
+            /* md breakpoint and above */
+            .promotion-card {
+                flex-direction: row;
+                /* Change to row on medium and larger screens */
+                align-items: flex-start;
+                /* Align items to the top */
+                padding: 1.5rem;
+                /* Adjust padding for larger screens */
+            }
+
+            .promotion-card img {
+                width: 60%;
+                /* Image takes 60% of the width on larger screens */
+                height: auto;
+                /* Let height adjust naturally while maintaining aspect ratio based on width */
+            }
+
+            .promotion-card .text-content {
+                width: 40%;
+                /* Text content takes 40% of the width on larger screens */
+                padding: 0 0 0 1.5rem;
+                /* Adjust padding to separate from image */
+            }
+
+            .promotion-card-single {
+                padding: 1.5rem;
+            }
+
+            .promotion-card-single .promotion-card-title {
+                text-align: left;
+                /* Align title to left on larger screens */
+            }
+
+            /* Removed flex-direction: row from promotion-card-body-content at md breakpoint */
+            /* It will now retain flex-direction: column from its default style */
+
+            .promotion-card-single img {
+                width: 100%;
+                /* Image takes full width of its container on larger screens as well */
+                height: auto;
+                /* Let height adjust naturally */
+            }
+
+            .promotion-card-single .text-content {
+                width: 100%;
+                /* Text content takes full width on larger screens as well */
+                padding: 0 1rem;
+                /* Adjust padding */
+            }
+        }
     </style>
 </head>
 
 <body class="text-gray-100">
+    <!-- Header Section -->
     <header class="bg-gradient-to-r from-black to-red-900 text-white shadow-lg py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#"
@@ -270,6 +569,7 @@
                     <li><a href="#promotions"
                             class="hover:text-red-400 transition-colors duration-300 text-lg font-medium header-link">Promotions</a>
                     </li>
+
                     <li><a href="#voucher"
                             class="hover:text-red-400 transition-colors duration-300 text-lg font-medium header-link">Claim
                             Voucher</a></li>
@@ -281,11 +581,13 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="relative bg-cover bg-center h-96 flex items-center justify-center text-white"
         style="background-image: url('https://placehold.co/1200x600/000000/dc2626?text=REDLITE+NIGHTS');">
         <div class="absolute inset-0 bg-black opacity-80 rounded-md"></div>
         <div class="relative z-10 text-center p-4">
-            <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg text-red-500">Ignite Your Night at Redlite Karaoke
+            <h1 class="text-4xl font-extrabold mb-4 drop-shadow-lg text-red-500">Ignite Your Night at Redlite Karaoke
+                Sunter
                 Jakarta Utara!</h1>
             <p class="text-xl mb-8 max-w-2xl mx-auto drop-shadow-md">Step into the spotlight with electrifying karaoke,
                 signature drinks, and vibrant company at the best karaoke in Jakarta Utara.</p>
@@ -295,89 +597,131 @@
         </div>
     </section>
 
+    <!-- Gallery Section (Carousel) -->
     <section id="gallery" class="py-16 bg-gray-950">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 text-red-500">Our Exclusive Redlite Karaoke Zones in Jakarta
-                Utara</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-red-500">Our Exclusive Rooms in Redlite Karaoke Sunter
+            </h2>
             <div class="carousel-container max-w-6xl mx-auto">
+                <h4 id="carouselTitle" class="text-3xl mt-5 mb-3 font-bold text-center text-red-500"></h4>
                 <div class="carousel-slides" id="carouselSlides">
                     <div class="carousel-slide">
                         <div class="carousel-grid">
+                            <!-- Gallery Item 1 (Image Only) -->
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img7.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-small/1.jpeg" alt="Crimson VIP Suite Karaoke Jakarta Utara">
+                                </div>
                             </div>
+                            <!-- Gallery Item 2 (Image Only) -->
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img8.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-small/2.jpeg" alt="Ruby Private Room Karaoke Jakarta Utara">
+                                </div>
                             </div>
+                            <!-- Gallery Item 3 (Image Only) -->
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img9.jpeg" alt="Premium Drinks Karaoke Jakarta Utara">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-grid">
-                            <div
-                                class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img7.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
-                            </div>
-                            <div
-                                class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img8.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
-                            </div>
-                            <div
-                                class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img9.jpeg" alt="Premium Drinks Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-small/3.jpeg"
+                                        alt="Main Performance Stage Karaoke Jakarta Utara">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-slide">
                         <div class="carousel-grid">
+                            <!-- Gallery Item 4 (Image Only) -->
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img7.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-medium/1.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                </div>
                             </div>
+                            <!-- Gallery Item 5 (Video Embed) -->
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img8.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-medium/2.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                </div>
                             </div>
+                            <!-- Gallery Item 6 (Image Only) -->
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img9.jpeg" alt="Premium Drinks Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-medium/3.jpeg" alt="Premium Drinks Karaoke Jakarta Utara">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- New Slide 3: Companions & Hospitality -->
                     <div class="carousel-slide">
                         <div class="carousel-grid">
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img7.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-large/1.jpeg" alt="Charming Redlite Companions">
+                                </div>
                             </div>
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img8.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-large/2.jpeg" alt="Friendly Redlite Staff">
+                                </div>
                             </div>
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img9.jpeg" alt="Premium Drinks Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-large/3.jpeg" alt="Redlite Luxury Interior">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- New Slide 4: Food & Snacks -->
                     <div class="carousel-slide">
                         <div class="carousel-grid">
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img7.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-exe-1/1.jpeg" alt="Delicious Karaoke Snacks">
+                                </div>
                             </div>
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img8.jpeg" alt="Redlite Bar Area Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-exe-1/2.jpeg" alt="Gourmet Food Redlite">
+                                </div>
                             </div>
                             <div
                                 class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
-                                <img src="assets/img9.jpeg" alt="Premium Drinks Karaoke Jakarta Utara">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-exe-1/3.jpeg" alt="Fresh Ingredients">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Slide 5: Events & Parties -->
+                    <div class="carousel-slide">
+                        <div class="carousel-grid">
+                            <div
+                                class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-exe-2/1.jpeg" alt="Special Events Karaoke">
+                                </div>
+                            </div>
+                            <div
+                                class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-exe-2/2.jpeg" alt="Birthday Parties Redlite">
+                                </div>
+                            </div>
+                            <div
+                                class="bg-gray-900 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 gallery-item-content">
+                                <div class="media-wrapper">
+                                    <img src="assets/room-exe-2/3.jpeg" alt="Corporate Events Karaoke">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -391,51 +735,91 @@
                 <div class="carousel-indicators" id="carouselIndicators">
                     <span class="carousel-indicator active" onclick="currentSlide(0)"></span>
                     <span class="carousel-indicator" onclick="currentSlide(1)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(2)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(3)"></span>
+                    <span class="carousel-indicator" onclick="currentSlide(4)"></span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Promotions Section -->
     <section id="promotions" class="py-16 bg-gradient-to-br from-gray-900 to-black text-white">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 drop-shadow-lg text-red-500">Exclusive Redlite Karaoke
                 Promotions in Jakarta Utara</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div
-                    class="bg-gray-900 text-gray-100 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 border border-red-700">
-                    <img src="assets/promo-room.jpeg" alt="Happy Hour Promotion" class="w-full h-48 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-3xl font-bold mb-4 text-red-400">Redlite Happy Hour!</h3>
-                        <p class="text-lg mb-4"><strong>Buy 1 Get 1 Free</strong> on all Redlite signature cocktails
-                            from 9 PM - 12 AM, only at our Jakarta Utara karaoke.</p>
-                        <p class="text-sm text-gray-400">Valid Sunday to Thursday. Terms and conditions apply.</p>
+
+            <!-- First Container: Merged 2 promos with carousel -->
+            <div class="promotions-carousel-container max-w-4xl mx-auto mb-12">
+                <div class="promotions-carousel-slides" id="promotionsCarouselSlides">
+                    <!-- Promo Card 1 -->
+                    <div class="promotions-carousel-slide">
+                        <div
+                            class="bg-gray-900 text-gray-100 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 border border-red-700 promotion-card">
+                            <img src="assets/promo-room.jpeg" alt="Happy Hour Promotion">
+                            <div class="p-8 text-content">
+                                <h3 class="text-3xl font-bold mb-4 text-red-400">Paket Executive Room</h3>
+                                <p class="text-lg mb-4"><strong>Get Free 4 Ladies @ 2 Jam </strong>. Start From
+                                    6.000.000</p>
+                                <p class="text-sm text-gray-400">
+                                    Free :
+                                    <li>Room</li>
+                                    <li>4 Ladies @ 2 jam</li>
+                                    <li>6 Mixers</li>
+                                    <li>6 Mineral Water</li>
+                                    <li>2 Appetizer</li>
+                                    <li>1 Fruit Platter</li>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Promo Card 2 -->
+                    <div class="promotions-carousel-slide">
+                        <div
+                            class="bg-gray-900 text-gray-100 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 border border-red-700 promotion-card">
+                            <img src="assets/promo-room-2.jpeg" alt="VIP Package Promotion">
+                            <div class="p-8 text-content">
+                                <h3 class="text-3xl font-bold mb-4 text-red-400">Paket Special Room</h3>
+                                <p class="text-lg mb-4"><strong>Get Free 2 Ladies @ 2 Jam </strong>. Start From
+                                    3.400.000</p>
+                                <p class="text-sm text-gray-400">
+                                    Free :
+                                    <li>Room</li>
+                                    <li>2 Ladies @ 2 jam</li>
+                                    <li>3 Mixers</li>
+                                    <li>3 Mineral Water</li>
+                                    <li>1 Appetizer</li>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div
-                    class="bg-gray-900 text-gray-100 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 border border-red-700">
-                    <img src="assets/promo-room-2.jpeg" alt="VIP Package Promotion" class="w-full h-48 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-3xl font-bold mb-4 text-red-400">Crimson VIP Package</h3>
-                        <p class="text-lg mb-4">Book our Crimson VIP Suite for 4 hours and get a <strong>complimentary
-                                bottle of premium champagne</strong>, exclusive for Redlite Karaoke Jakarta Utara.</p>
-                        <p class="text-sm text-gray-400">Advance booking required. Limited to one bottle per booking.
-                        </p>
-                    </div>
+                <!-- Carousel Navigation Buttons for Promotions -->
+                <button class="promotions-carousel-button left" onclick="prevPromoSlide()">❮</button>
+                <button class="promotions-carousel-button right" onclick="nextPromoSlide()">❯</button>
+
+                <!-- Carousel Indicators for Promotions -->
+                <div class="promotions-carousel-indicators" id="promotionsCarouselIndicators">
+                    <span class="promotions-carousel-indicator active" onclick="currentPromoSlide(0)"></span>
+                    <span class="promotions-carousel-indicator" onclick="currentPromoSlide(1)"></span>
                 </div>
+            </div>
+
+            <!-- Second Container: Single full-width promo (Ladies Night Ignite) -->
+            <div class="max-w-4xl mx-auto">
                 <div
-                    class="bg-gray-900 text-gray-100 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 border border-red-700">
-                    <img src="assets/promo-room-2.jpeg" alt="Ladies Night Promotion" class="w-full h-48 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-3xl font-bold mb-4 text-red-400">Ladies Night Ignite</h3>
-                        <p class="text-lg mb-4">Ladies enjoy <strong>free entry and a special Redlite welcome
-                                drink</strong> every Friday night at our Jakarta Utara location!</p>
-                        <p class="text-sm text-gray-400">From 9 PM onwards. Specific drinks apply.</p>
+                    class="bg-gray-900 text-center text-gray-100 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 border border-red-700 promotion-card-single">
+                    <h3 class="text-3xl font-bold mb-4 text-red-400 promotion-card-title">Promo Drink Buy 2
+                        Get 1</h3>
+                    <div class="promotion-card-body-content">
+                        <img src="assets/promo-drink-2.jpeg" alt="Ladies Night Promotion">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Voucher Claim Form Section -->
     <section id="voucher" class="py-16 bg-gray-950">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-red-500">Claim Your Exclusive Redlite Karaoke Voucher
@@ -463,7 +847,7 @@
                             <option value="">-- Select --</option>
                             <option value="Drink Special">Redlite Drink Special</option>
                             <option value="Room Discount">Exclusive Room Discount</option>
-                            <!-- <option value="VIP Night Pass">VIP Night Pass</option> -->
+                            <option value="VIP Night Pass">Special Promo Eksklusif</option>
                         </select>
                     </div>
                     <button type="button" id="claimVoucherBtn"
@@ -499,6 +883,7 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer class="bg-black text-gray-400 py-8">
         <div class="container mx-auto px-4 text-center">
             <p>© 2025 REDLITE KARAOKE JAKARTA UTARA. All rights reserved.</p>
@@ -509,6 +894,7 @@
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/6285775500997?text=Hello%20Redlite%20Karaoke%20Jakarta%20Utara!%20I'd%20like%20to%20inquire%20about%20your%20services."
         class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
         <svg class="whatsapp-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
@@ -523,16 +909,26 @@
                 d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
             </path>
         </svg>
-        <span class="text">Reservation</span>
+        <span class="text">WA Reservation</span>
     </a>
 
     <script>
-        // Carousel functionality
+        // Gallery Carousel functionality
         const carouselSlides = document.getElementById('carouselSlides');
         const carouselIndicators = document.getElementById('carouselIndicators');
+        const carouselTitle = document.getElementById('carouselTitle'); // Get the H4 element
         const slides = document.querySelectorAll('.carousel-slide');
         let currentIndex = 0;
-        const totalSlides = slides.length;
+        const totalSlides = 5; // Updated to 5 slides
+
+        // Define titles for each slide
+        const slideTitles = [
+            "Small Rooms",
+            "Medium Rooms",
+            "Large Rooms",
+            "Executive Room 1",
+            "Executive Room 2"
+        ];
 
         function showSlide(index) {
             if (index >= totalSlides) {
@@ -543,6 +939,7 @@
                 currentIndex = index;
             }
             carouselSlides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            carouselTitle.textContent = slideTitles[currentIndex]; // Update the H4 text
             updateIndicators();
         }
 
@@ -569,25 +966,101 @@
             });
         }
 
-        // Auto-play carousel
+        // Auto-play gallery carousel
         let autoPlayInterval;
         function startAutoPlay() {
-            autoPlayInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
+            autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
         }
 
         function stopAutoPlay() {
             clearInterval(autoPlayInterval);
         }
 
+
+        // Promotions Carousel functionality
+        const promotionsCarouselSlides = document.getElementById('promotionsCarouselSlides');
+        const promotionsCarouselIndicators = document.getElementById('promotionsCarouselIndicators');
+        const promotionsSlides = document.querySelectorAll('.promotions-carousel-slide');
+        let currentPromoIndex = 0;
+        const totalPromoSlides = promotionsSlides.length; // Will be 2 for this carousel
+
+        function showPromoSlide(index) {
+            if (index >= totalPromoSlides) {
+                currentPromoIndex = 0;
+            } else if (index < 0) {
+                currentPromoIndex = totalPromoSlides - 1;
+            } else {
+                currentPromoIndex = index;
+            }
+            promotionsCarouselSlides.style.transform = `translateX(-${currentPromoIndex * 100}%)`;
+            updatePromoIndicators();
+        }
+
+        function nextPromoSlide() {
+            showPromoSlide(currentPromoIndex + 1);
+        }
+
+        function prevPromoSlide() {
+            showPromoSlide(currentPromoIndex - 1);
+        }
+
+        function currentPromoSlide(index) {
+            showPromoSlide(index);
+        }
+
+        function updatePromoIndicators() {
+            const indicators = document.querySelectorAll('.promotions-carousel-indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentPromoIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-play for promotions carousel
+        let promoAutoPlayInterval;
+        function startPromoAutoPlay() {
+            promoAutoPlayInterval = setInterval(nextPromoSlide, 7000); // Change slide every 7 seconds
+        }
+
+        function stopPromoAutoPlay() {
+            clearInterval(promoAutoPlayInterval);
+        }
+
         // Start auto-play when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            showSlide(0); // Initialize carousel
+            showSlide(0); // Initialize gallery carousel and set initial H4 text
             startAutoPlay();
 
-            // Pause auto-play on hover
+            // Pause auto-play on hover for gallery carousel
             const carouselContainer = document.querySelector('.carousel-container');
             carouselContainer.addEventListener('mouseenter', stopAutoPlay);
             carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+            // New promotions carousel initialization
+            showPromoSlide(0);
+            startPromoAutoPlay();
+            const promotionsCarouselContainer = document.querySelector('.promotions-carousel-container');
+            promotionsCarouselContainer.addEventListener('mouseenter', stopPromoAutoPlay);
+            promotionsCarouselContainer.addEventListener('mouseleave', startPromoAutoPlay);
+
+            // Smooth scroll for header links
+            document.querySelectorAll('nav a.header-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
 
 
